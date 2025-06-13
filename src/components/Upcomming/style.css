@@ -1,0 +1,33 @@
+/* إضافة أيقونات Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* تحسينات للأسهم */
+.control-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.control-btn .next {
+  right: -15px;
+}
+
+.control-btn .prev {
+  left: -15px;
+}
+
+/* تحسينات للكارت عند hover */
+.upcoming .slick-slide {
+  padding: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.upcoming .slick-slide:hover {
+  transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+}
