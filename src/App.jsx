@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
 import { ApiProvider } from "./components/context/ApiProvider";
@@ -14,7 +14,7 @@ import MyList from "./components/MyList/MyList";
 
 
 function App() {
-  const myRouter = createBrowserRouter([
+  const myRouter = createHashRouter([
     {
       path: "/",
       element: <Layout />,
