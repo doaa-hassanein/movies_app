@@ -59,10 +59,11 @@ const UpCommingMovies = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen pt-40 pb-20">
       <div className="w-[90%] mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
-          <span className="text-red-600">Recommended </span> Movies
+        <h2 className="text-3xl md:text-3xl font-bold mb-10">
+          <span className="text-red-600">UP Comming </span> Movies
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+
           {movies.map((movie) => (
             <div
               key={movie.id}

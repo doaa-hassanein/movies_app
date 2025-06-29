@@ -70,8 +70,9 @@ const MovieDetails = () => {
   }
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen pt-20">
-      <div className=" mx-auto  px-2 md:px-4">
+    <div className="bg-gray-900 text-white min-h-screen pt-20 pb-20">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="relative bg-gradient-to-b from-gray-900 to-black rounded-xl overflow-hidden shadow-2xl">
           {/* Background Image */}
           <div
@@ -130,7 +131,8 @@ const MovieDetails = () => {
               </div>
 
               {/* Status and Budget from API */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+
                 {[
                   { title: "STATUS", value: movie.status, icon: "🎬" },
 
@@ -304,7 +306,8 @@ const MovieDetails = () => {
             <div className="ml-4 h-1 flex-1 bg-gradient-to-r from-red-600 to-transparent"></div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+
             {similarMovies.map((movie) => (
               <div
                 key={movie.id}

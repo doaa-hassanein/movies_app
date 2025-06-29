@@ -47,7 +47,7 @@ const TVShowsPage = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen pt-40 pb-20">
       <div className="w-[90%] mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+        <h2 className="text-3xl md:text-3xl font-bold mb-10">
           <span className="text-red-600">Popular </span> TV Shows
         </h2>
 
@@ -80,7 +80,8 @@ const TVShowsPage = () => {
 
               <div className="p-3">
                 <h3 className="text-xl font-bold mb-1 line-clamp-2 h-14">
-                  {show.name}
+                 {show.name?.split(" ").slice(0, 2).join(" ")}
+
                 </h3>
                 <div className="text-center">
                   <NavLink

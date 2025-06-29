@@ -3,17 +3,15 @@ import { useMyList } from "../context/myListProvider";
 import { NavLink } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 
-
 const MyList = () => {
-  
   const { addToList, myList, removeFromList } = useMyList();
 
   return (
     <div className="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white pt-40 pb-20 px-4 md:px-8">
       <div className="w-[90%] mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            <span className="text-red-600"> My </span> List
+          <h2 className="text-3xl md:text-3xl font-bold">
+            <span className="text-red-600">My</span> List
           </h2>
         </div>
 
@@ -43,7 +41,8 @@ const MyList = () => {
             </NavLink>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
             {myList.map((movie) => (
               <div
                 key={movie.id}
@@ -66,30 +65,32 @@ const MyList = () => {
                   <p className="text-gray-400 text-base mb-4 font-medium">
                     {new Date(movie.release_date).toLocaleDateString()}
                   </p>
-                  <div className="flex space-x-2">
+                  <div className="flex flex-row gap-2 w-full">
+                    {/* زر التفاصيل */}
                     <NavLink
                       to={`/movie/${movie.id}`}
-                      className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md inline-flex items-center justify-center flex-1 transition-colors no-underline text-lg font-medium"
+                      className="bg-red-600 hover:bg-red-700 text-white py-2 px-2 sm:px-3 md:px-4 rounded-md flex items-center justify-center flex-1 text-sm sm:text-base font-medium transition-all duration-300 whitespace-nowrap min-w-[90px]"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        height="20"
-                        width="15"
+                        height="14"
+                        width="10"
                         viewBox="0 0 384 512"
-                        className="fill-current me-3"
+                        className="fill-current mr-1 sm:mr-2"
                       >
                         <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                       </svg>
-                      Details
+                      <span className="truncate">Details</span>
                     </NavLink>
 
+                    {/* زر الإزالة */}
                     <button
                       onClick={() => removeFromList(movie.id)}
-                      className="bg-transparent border-2 border-gray-600 hover:border-white text-white py-2 px-4 rounded-md inline-flex items-center justify-center flex-1 transition-colors"
+                      className="border-2 border-gray-600 hover:border-white text-white py-2 px-2 sm:px-3 md:px-4 rounded-md flex items-center justify-center flex-1 text-sm sm:text-base transition-colors duration-300 whitespace-nowrap min-w-[100px]"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 mr-2"
+                        className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -101,7 +102,7 @@ const MyList = () => {
                           d="M6 18L18 6M6 6l12 12"
                         />
                       </svg>
-                      Remove
+                      <span className="truncate">Remove</span>
                     </button>
                   </div>
                 </div>

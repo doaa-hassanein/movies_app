@@ -48,7 +48,7 @@ const TVShowDetails = () => {
         }
       }
 
-      // معالجة البيانات لضمان وجود الحقول الأساسية
+   
       setSeasons(
         seasonsData.map((season) => ({
           id: season.id || `${id}-${season.season_number}`,
@@ -95,9 +95,9 @@ const TVShowDetails = () => {
         ></div>
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-700/10 to-transparent"></div>
 
-        <div className="w-[96%] mx-auto px-4 py-8 flex flex-col md:flex-row gap-8 relative z-10">
+        <div className="w-[96%] mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8 relative z-10">
           {/* Poster */}
-          <div className="md:w-1/3 flex-shrink-0">
+          <div className="lg:w-1/3 flex-shrink-0">
             <img
               src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
               alt={show.name}
@@ -106,35 +106,20 @@ const TVShowDetails = () => {
           </div>
 
           {/* Details */}
-          <div className="md:w-2/3">
-            <h1 className="text-4xl font-bold mb-2">
+          <div className="lg:w-2/3">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-2">
               {show.name}
-              <span className="text-2xl text-gray-400 ml-2">
+              <span className="text-xl sm:text-2xl text-gray-400 ml-2">
                 ({new Date(show.first_air_date).getFullYear()})
               </span>
             </h1>
 
             {/* Tagline */}
             {show.tagline && (
-              <p className="text-xl italic text-gray-300 mb-6">
+              <p className="text-lg sm:text-xl italic text-gray-300 mb-6">
                 "{show.tagline}"
               </p>
             )}
-
-            {/* Basic Info Badges */}
-            <div className="mt-4 flex flex-wrap gap-4 mb-6 text-xl">
-              <span className="bg-red-800 px-3 py-1 rounded-full text-base font-bold">
-                {show.original_language?.toUpperCase()}
-              </span>
-              <span>
-                {new Date(show.first_air_date).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
-              <span>{show.genres?.map((g) => g.name).join(", ")}</span>
-            </div>
 
             {/* User Score */}
             <div className="mb-8">
@@ -149,6 +134,51 @@ const TVShowDetails = () => {
               </div>
             </div>
 
+            {/* Styled Info Boxes */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+              {[
+                {
+                  title: "LANGUAGE",
+                  value: show.original_language?.toUpperCase(),
+                  icon: "🌥️",
+                },
+                {
+                  title: "RELEASE DATE",
+                  value: new Date(show.first_air_date).toLocaleDateString(
+                    "en-US",
+                    {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    }
+                  ),
+                  icon: "📅",
+                },
+                {
+                  title: "GENRES",
+                  value: show.genres?.map((g) => g.name).join(", "),
+                  icon: "🎭",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-800/70 p-4 rounded-lg hover:bg-gray-700/70 transition-colors border border-gray-700"
+                >
+                  <div className="flex items-start">
+                    <span className="text-2xl mr-3 mt-0.5">{item.icon}</span>
+                    <div>
+                      <h4 className="text-base font-semibold text-gray-300">
+                        {item.title}
+                      </h4>
+                      <p className="text-lg font-bold text-white mt-1">
+                        {item.value}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Overview */}
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-2">Overview</h3>
@@ -157,10 +187,10 @@ const TVShowDetails = () => {
           </div>
         </div>
       </div>
-      {/* Cast Section - Moved Below */}
+
+      {/* Cast Section */}
       {cast.length > 0 && (
         <div className="mt-16 max-w-7xl mx-auto px-4">
-          {/* Header with stylish gradient line */}
           <div className="flex items-center mb-8">
             <h2 className="text-4xl font-bold text-red-600 flex items-center">
               <svg
@@ -179,11 +209,9 @@ const TVShowDetails = () => {
             <div className="ml-4 h-1 flex-1 bg-gradient-to-r from-red-600 to-transparent"></div>
           </div>
 
-          {/* Cast Grid - Responsive with hover effects */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-6">
             {cast.slice(0, 9).map((actor) => (
               <div key={actor.id} className="group text-center">
-                {/* Circular Avatar with Hover Effect */}
                 <div className="relative rounded-full overflow-hidden w-32 h-32 mx-auto mb-3 shadow-lg border-2 border-gray-700 group-hover:border-red-600 transition-all duration-300">
                   <img
                     src={
@@ -195,15 +223,12 @@ const TVShowDetails = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  {/* Character Name on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2">
                     <span className="text-white text-sm font-medium px-2">
                       {actor.character}
                     </span>
                   </div>
                 </div>
-
-                {/* Actor Info */}
                 <div className="px-2">
                   <p className="text-lg font-semibold text-white truncate">
                     {actor.name}
@@ -218,29 +243,25 @@ const TVShowDetails = () => {
         </div>
       )}
 
-      {/* Seasons Section - Moved Below */}
-
-      {/* عرض المواسم */}
-
-      
-      <div className="mt-12  max-w-7xl mx-auto pb-20">
+      {/* Seasons Section */}
+      <div className="mt-12 max-w-7xl mx-auto pb-20 px-4">
         <div className="flex items-center mb-8">
-            <h2 className="text-4xl font-bold text-red-600 flex items-center">
-              <svg
-                className="w-8 h-8 mr-3"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Seasons
-            </h2>
-            <div className="ml-4 h-1 flex-1 bg-gradient-to-r from-red-600 to-transparent"></div>
-          </div>
+          <h2 className="text-4xl font-bold text-red-600 flex items-center">
+            <svg
+              className="w-8 h-8 mr-3"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Seasons
+          </h2>
+          <div className="ml-4 h-1 flex-1 bg-gradient-to-r from-red-600 to-transparent"></div>
+        </div>
 
         {seasons.length === 0 ? (
           <div className="bg-gray-800/30 p-8 rounded-lg text-center">
@@ -282,7 +303,6 @@ const TVShowDetails = () => {
                         </span>
                       </div>
                     </div>
-                    
                   </Link>
                 </div>
               ))}

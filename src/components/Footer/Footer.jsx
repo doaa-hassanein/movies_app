@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-black text-white border-t border-gray-800 pt-16 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-12">
+    <footer className="bg-gradient-to-b from-gray-900 to-black text-white border-t border-gray-800 pt-12 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12">
         {/* Left Section */}
-        <div className="md:col-span-6 lg:col-span-5">
+        <div className="lg:col-span-5 col-span-1 sm:col-span-2">
           <div className="mb-6">
             <h2 className="text-3xl font-bold text-red-600 mb-2">STREAMIT</h2>
             <p className="text-gray-400">Your Ultimate Streaming Experience</p>
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
 
         {/* Follow Us */}
-        <div className="md:col-span-3 lg:col-span-3">
+        <div className="lg:col-span-3 col-span-1 sm:col-span-1">
           <h3 className="text-xl font-semibold mb-4 flex items-center">
             <svg
               className="w-6 h-6 mr-2 text-red-500"
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
 
         {/* Download App */}
-        <div className="md:col-span-3 lg:col-span-4">
+        <div className="lg:col-span-4 col-span-1 sm:col-span-1">
           <h3 className="text-xl font-semibold mb-4 flex items-center">
             <svg
               className="w-6 h-6 mr-2 text-red-500"
@@ -111,8 +111,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-gray-800">
-        <p className="text-gray-500 text-sm text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-6 border-t border-gray-800 text-center">
+        <p className="text-gray-500 text-sm">
           Made with ❤️ by Streamit Team | All trademarks are property of their
           respective owners.
         </p>

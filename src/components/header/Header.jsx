@@ -57,7 +57,7 @@ const Header = () => {
           <img
             src={logo}
             alt="Streamify Logo"
-            className="h-14 hover:opacity-80 transition-opacity"
+            className="h-12 hover:opacity-80 transition-opacity"
           />
         </NavLink>
 
@@ -69,7 +69,7 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `relative text-2xl font-medium transition-colors ${
+                `relative text-xl font-medium transition-colors ${
                   isActive
                     ? "text-red-600 no-underline"
                     : "text-gray-300 hover:text-red-600 no-underline"
@@ -86,7 +86,7 @@ const Header = () => {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-blue-600 text-3xl transition-colors"
+              className="text-gray-300 hover:text-blue-600 text-2xl transition-colors"
             >
               <FaFacebook />
             </a>
@@ -94,7 +94,7 @@ const Header = () => {
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-red-600 text-3xl transition-colors"
+              className="text-gray-300 hover:text-red-600 text-2xl transition-colors"
             >
               <FaYoutube />
             </a>
@@ -102,7 +102,7 @@ const Header = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-pink-500 text-3xl transition-colors"
+              className="text-gray-300 hover:text-pink-500 text-2xl transition-colors"
             >
               <FaInstagram />
             </a>
@@ -110,7 +110,7 @@ const Header = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-sky-400 text-3xl transition-colors"
+              className="text-gray-300 hover:text-sky-400 text-2xl transition-colors"
             >
               <FaTwitter />
             </a>

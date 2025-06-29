@@ -93,7 +93,7 @@ const Movies = () => {
         {/* Recommended Movies */}
         <section className="mb-16">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-3xl font-bold">
               <span className="text-red-600">Recommended</span> Movies
             </h2>
           </div>
